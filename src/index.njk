@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club de Fútbol</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>{{ club.nombre }}</h1>
+    <nav>
+      <a href="#principal">Inicio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+  </header>
+  <main>
+    <section id="principal">
+      <h2>Sobre el Club</h2>
+      <div>{{ club.descripcion | safe }}</div>
+    </section>
+    <section id="galeria">
+      <h2>Galería de Fotos</h2>
+      <div style="width:100%;height:500px;max-width:900px;margin:auto;">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1a5-FMf2A4COcMiozTsKWRon52BAWueyp#grid" style="width:100%;height:100%;border:0;" allowfullscreen></iframe>
+      </div>
+    </section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <ul>
+        <li>Teléfono: {{ contacto.telefono }}</li>
+        <li>Email: {{ contacto.email }}</li>
+        <li>Dirección: {{ contacto.direccion }}</li>
+      </ul>
+    </section>
+    <section id="ubicacion">
+      <h2>Ubicación</h2>
+      <div class="mapa">
+        {{ ubicacion.mapa | safe }}
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; {{ "now" | date: "%Y" }} Club de Fútbol</p>
+  </footer>
+</body>
+</html>
